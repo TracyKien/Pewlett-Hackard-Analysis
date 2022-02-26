@@ -289,7 +289,13 @@ SELECT DISTINCT ON (emp_no) emp_no,
 first_name,
 last_name,
 title
---INTO unique_titles
+INTO unique_titles
 FROM retirement_titles
 ORDER BY emp_no ASC, to_date DESC;
 
+SELECT COUNT (title),
+title
+INTO retiring_titles
+FROM unique_titles
+GROUP BY TITLE
+Order BY COUNT(title) DESC;
